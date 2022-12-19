@@ -16,8 +16,8 @@ const userSchema = new Schema(
         required: true,
         match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'This is not a valid email']
     },
-    thoughts: [thoughtSchema],
-    friends: [userSchema],
+    // thoughts: [thoughtSchema],
+    // friends: [userSchema],
   },
   {
     toJSON: {
@@ -26,9 +26,9 @@ const userSchema = new Schema(
   }
 );
 
-userSchema.virtual('friendCount').get(function() {
-    return this.thoughts.length;
-});
+// userSchema.virtual('friendCount').get(function() {
+//     return this.thoughts.length;
+// });
 
 const User = model('user', userSchema);
 
