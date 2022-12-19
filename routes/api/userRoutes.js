@@ -9,8 +9,8 @@ const {
 
 // /api/users
 router.route('/')
-.get(getAllUsers)
-.post(addSingleUser);
+    .get(getAllUsers)
+    .post(addSingleUser);
 
 // /api/users/:userId
 router.route('/:userId')
