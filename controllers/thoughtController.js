@@ -1,4 +1,4 @@
-const { Thought } = require('../models')
+const { Thought, User } = require('../models')
 
 // wow, what a file name
 module.exports = {
@@ -23,9 +23,23 @@ module.exports = {
     },
     // Add a thought
     addSingleThought: (req, res) => {
+        console.log("Adding thought");
+        console.log(req.body);
         Thought.create(req.body)
-            .then((thought) => res.json(thought))
-            .catch((err) => res.status(500).json(err))
+        .then((thought) => res.json(thought))
+        .catch((err) => res.status(500).json(err))
+    },
+    // Add new thought to user's thoughts array
+    updateThoughtsArray: (req, res) => {
+        console.log("Updating thoughts");
+        console.log(req.body);
+        User.findOneAndUpdate(
+            { _id: req.body.userId },
+            { $addToSet: { thoughts: req.userId } },
+            { runValidators: true, new: true }
+        )
+        .then((thought) => res.json(thought))
+        .catch((err) => res.status(500).json(err))
     },
     // Update a thought
     updateSingleThought: (req, res) => {
@@ -49,5 +63,5 @@ module.exports = {
                     : res.json('Thought has been deleted')
             )
             .catch((err) => res.status(500).json(err));
-    },
+    }
 }
