@@ -49,4 +49,32 @@ module.exports = {
             )
             .catch((err) => res.status(500).json(err));
     },
+    // Add a friend
+    addSingleFriend: (req, res) => {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $addToSet: { friends: req.body.userId } },
+            { runValidators: true, new: true }
+        )
+            .then((user) =>
+                !user
+                    ? res.status(404).json({ message: "An error occured: check the user and friend id's" })
+                    : res.json('Friend has been added')
+            )
+            .catch((err) => res.status(500).json(err));
+    },
+    // Delete a friend
+    deleteSingleFriend: (req, res) => {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $pull: { friends: req.body.userId } },
+            { runValidators: true, new: true }
+        )
+            .then((user) =>
+                !user
+                    ? res.status(404).json({ message: "An error occured: Check the user and friend id's" })
+                    : res.json('Friend has been removed')
+            )
+            .catch((err) => res.status(500).json(err));
+    },
 };
