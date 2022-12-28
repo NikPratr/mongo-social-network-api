@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Thought } = require('../models')
 
 module.exports = {
     // Get all users
@@ -42,11 +42,15 @@ module.exports = {
     // Delete a user
     deleteSingleUser(req, res) {
         User.findOneAndDelete({ _id: req.params.userId })
-            .then((user) =>
+            .then((user) => {
                 !user
                     ? res.status(404).json({ message: 'No user with that ID' })
-                    : res.json('User has been deleted')
-            )
+                    : Thought.deleteMany(
+                        { username: user.username },
+                        { runValidators: true, new: true }
+                    )
+                    .then(() => res.json('User deleted successfully'))
+            })
             .catch((err) => res.status(500).json(err));
     },
     // Add a friend
