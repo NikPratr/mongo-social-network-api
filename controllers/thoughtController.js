@@ -23,8 +23,6 @@ module.exports = {
     },
     // Add a thought
     addSingleThought: (req, res) => {
-        console.log("Adding thought");
-        console.log(req.body);
         Thought.create(req.body)
             .then(
                 (thought) => {
@@ -52,13 +50,17 @@ module.exports = {
     },
     // Delete a thought
     deleteSingleThought: (req, res) => {
-        Thought.findOneAndDelete({ _id: req.params.thoughtId })
-            .then((thought) =>
-                !thought
-                    ? res.status(404).json({ message: 'No thought with that ID' })
-                    : res.json('Thought has been deleted')
-            )
-            .catch((err) => res.status(500).json(err));
+        Thought.findOneAndDelete( { _id: req.params.thoughtId } )
+            .then(
+                (thought) => {
+                    return User.findOneAndUpdate(
+                        { _id: req.body.userId },
+                        { $pull: { thoughts: req.params } },
+                        { runValidators: true, new: true }
+                    )
+                })
+            .then((user) => res.json(user))
+            .catch((err) => res.status(500).json(err))
     },
     // Add a reaction
     addSingleReaction: (req, res) => {
