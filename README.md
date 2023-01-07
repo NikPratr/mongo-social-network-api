@@ -7,26 +7,16 @@ A video walkthrough of each of the operations can be found below.
 
 ## Demonstration of user routes
 
-[![User Routes]](assets/user-routes.mp4)
+https://user-images.githubusercontent.com/109772660/211173523-7e59c2e1-a84b-490e-a4fc-46942e101198.mp4
 
 ## Demonstration of thought routes
 
-<video width="640" height="480" controls>
-  <source src="/assets/thought-routes.mp4" type="video/mp4">
-</video>
-
-<br>
+https://user-images.githubusercontent.com/109772660/211173628-9944b0e5-05fb-475d-bf58-cced861fbcc4.mp4
 
 ## Demonstration of reaction routes
 
-<video width="640" height="480" controls>
-  <source src="./assets/reaction-routes.mp4" type="video/mp4">
-</video>
-
-<br>
+https://user-images.githubusercontent.com/109772660/211173649-74c9060a-70aa-4184-8d53-6861f745df83.mp4
 
 ## Demonstration of friend routes
 
-<video width="640" height="480" controls>
-  <source src="./assets/friend-routes.mp4" type="video/mp4">
-</video>
+https://user-images.githubusercontent.com/109772660/211173539-e8eda2e6-ad30-4720-8198-099f83f623d9.mp4
