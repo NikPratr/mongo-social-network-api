@@ -9,8 +9,6 @@ A video walkthrough of each of the operations can be found below.
 
 [![User Routes]](assets/user-routes.mp4)
 
-<br>
-
 ## Demonstration of thought routes
 
 <video width="640" height="480" controls>
