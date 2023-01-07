@@ -8,7 +8,7 @@ A video walkthrough of each of the operations can be found below.
 ## Demonstration of user routes
 
 <video width="640" height="480" controls>
-  <source src="./assets/user-routes.mp4" type="video/mp4">
+  <source src="assets/user-routes.mp4" type="video/mp4">
 </video>
 
 <br>
